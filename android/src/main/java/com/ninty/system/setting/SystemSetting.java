@@ -203,6 +203,13 @@ public class SystemSetting extends ReactContextBaseJavaModule implements Activit
         return SystemSetting.class.getSimpleName();
     }
 
+    /** No-ops required by JS `NativeEventEmitter(nativeModule)`; events use RCTDeviceEventEmitter. */
+    @ReactMethod
+    public void addListener(String eventName) {}
+
+    @ReactMethod
+    public void removeListeners(Integer count) {}
+
     @ReactMethod
     public void setScreenMode(int mode, Promise promise) {
         mode = mode == Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL ? mode : Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
